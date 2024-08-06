@@ -105,31 +105,7 @@ Simple Chat is an open-source, all-in-one communication platform designed for bu
    - Secure video calls for virtual visits and consultations
 
 ## Getting Started
-To get started with the Healthcare Communication Platform, please follow the steps below:
-
-1. Clone the repository:
-   ```
-   git clone https://github.com/your-username/healthcare-communication-platform.git
-   ```
-
-2. Install the necessary dependencies:
-   ```
-   cd healthcare-communication-platform
-   npm install
-   ```
-
-3. Configure the environment variables:
-   - Create a `.env` file in the root directory and add the required configuration variables.
-
-4. Start the development server:
-   ```
-   npm start
-   ```
-
-5. Access the application in your browser:
-   ```
-   http://localhost:3000
-   ```
+TBC
 
 ## Contributing
 We welcome contributions from the open-source community! If you'd like to contribute to this project, please follow these guidelines:
@@ -140,10 +116,9 @@ We welcome contributions from the open-source community! If you'd like to contri
 4. Submit a pull request with a detailed description of your changes.
 
 ## License
-This project is licensed under the [MIT License](LICENSE).
+
 
 ## Contact
 If you have any questions or suggestions, please feel free to reach out to us:
 
-- Email: [healthcare-communication-platform@example.com](mailto:healthcare-communication-platform@example.com)
-- GitHub: [https://github.com/your-username/healthcare-communication-platform](https://github.com/your-username/healthcare-communication-platform)
+- Email: b@icelabz.co.uk

@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=simple_chat
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:alpine
+
+  web:
+    build: .
+    environment:
+      - DJANGO_SECRET_KEY=your_secret_key_here
+      - DEBUG=True
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/simple_chat
+      - REDIS_URL=redis://redis:6379/0
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    command: ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+volumes:
+  db-data:

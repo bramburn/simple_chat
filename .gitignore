@@ -22,7 +22,7 @@ lib64/
 local_settings.py
 db.sqlite3
 media
-
+.env
 # Editor
 .vscode/
 *.swp

@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .serializers import UserSerializer, PasswordUpdateSerializer, CreateUserSerializer
 
 User = get_user_model()
@@ -32,17 +32,12 @@ class UserDetail(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
 class UserCreate(APIView):
-    permission_classes = [IsAuthenticated]
-    # todo: add permission for admin only
+    permission_classes = [IsAdminUser]
 
     def post(self, request):
         serializer = CreateUserSerializer(data=request.data)
         if serializer.is_valid():
-            user = User.objects.create_user(
-                username=serializer.validated_data['username'],
-                email=serializer.validated_data['email'],
-                password=serializer.validated_data['password']
-            )
+            user = serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
